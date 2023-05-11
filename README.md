@@ -159,7 +159,55 @@ console.log(quickSort(array));
 ```
  <strong>- 내가 푼 답</strong>
 ```js
- ㅇㅇ
+const input = prompt('체크하고싶은 괄호를 입력하세요').split('')
+
+let countLeft = 0;
+let countRight = 0;
+for (let i = 0; i < input.length; i++){
+  if ((input2[i] === '(' || input[i] === '{' || input[i] === '[') && (i % 2 === 0){
+    countLeft++;
+    console.log(i, countLeft)
+  } 
+  if ((input[i] === ')' || input[i] === '}' || input[i] === ']') && (i % 2 === 1)){
+    countRight++;
+    console.log(i, countRight)
+  }
+}  
+  if (countLeft === countRight){
+    console.log('YES')
+  } else {
+    console.log('NO')
+  }
+  
+  // 열린괄호가 먼저 와야된다는 조건 충족안됨
+  // 괄호별로 경우 다 나눠서 카운트를 다른 변수에서 셀까?
+  // 진짜 멋없다 
+  // (해당 문제에서는 소괄호만 판별하지만, 중괄호와 대괄호까지 판별해 보세요.) -> ? 문제를 잘 읽읍시다.
+ ```
+ ```js
+const input = prompt('확인하고싶은 괄호를 입력하세요').split('');
+
+let count= 0;
+
+for (let i = 0; i < input.length; i++){
+  if (input[i] === '('){
+    count++;
+    console.log(i, count)
+  } 
+  if (input[i] === ')'){
+    count--;
+    console.log(i, count)
+  }
+  if (count < 0){
+    break;
+  }
+} 
+
+if (count === 0){
+  console.log('YES');
+} else {
+  console.log('NO');
+}
  ```
 <br>
 
