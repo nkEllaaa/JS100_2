@@ -117,23 +117,29 @@ console.log(quickSort(array));
 ```
  <strong>- 내가 푼 답</strong>
 ```js
-function quickSort(arr){
+function quickSort(arr){  //만약 배열의 길이가 1이하이면 정렬완료로 보고 리턴
   if (arr.length <= 1){
     return arr;
   }
 
-  const pivot = arr[0]; //기준점
-  const left = [];
-  const right = [];
+  const pivot = arr[0]; //퀵 솔트는 머지솔트와 다르게 리스트를 비균등하게 나누기 때문에 기준점을 임의로 설정한다.
+  const left = []; //왼쪽배열 담을 공간
+  const right = []; //오른쪽 배열 담을 공간
 
-  for (let i=1; i<arr.length; i++){
-    if(arr[i] < pivot){ 
+  for (let i=1; i<arr.length; i++){ // 피벗을 인덱스 0으로 잡았기 때문에 1부터 시작함
+    if(arr[i] < pivot){  // 작으면 왼쪽에
       left.push(arr[i]);
     } else {
-      right.push(arr[i]);
+      right.push(arr[i]); // 크면 오른쪽배열에 푸쉬
     }
   }
-  return quickSort(left).concat(pivot, quickSort(right));
+  return quickSort(left).concat(pivot, quickSort(right)); //concat : 두개의 문자열을 하나로 합쳐주는 메서드, 지금처럼 쓰면 세개를 이어줌
+}
+
+const array = prompt('배열을 입력하세요').split('').map(n => parseInt(n, 10)); // 왜 이거 자꾸 스플릿 공백으로 받는걸까?
+
+console.log(quickSort(array)); //quickSort함수에 array를 배열로 넘겨줌
+
 }
 
 const array = prompt('배열을 입력하세요').split('').map(n => parseInt(n, 10));
