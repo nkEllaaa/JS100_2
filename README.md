@@ -209,6 +209,23 @@ if (count === 0){
  ```
 <br>
 
+## stack
+```js
+스택 :  차곡차곡 쌓아 올린 형태의 자료구조
+정해진 방향 (top)을 통해서만 접근 가능
+top을 통해 삽입하는 연산을 'push' , top을 통한 삭제하는 연산을 'pop'
+가장 마지막에 삽입된 자료가 가장 먼저 삭제
+후입선출(LIFO, Last-In-First-Out) 구조
+
+웹 브라우저 방문기록 (뒤로 가기) : 가장 나중에 열린 페이지부터 다시 보여준다. // 오오 대박 이렇게 쓰는거구나
+역순 문자열 만들기 : 가장 나중에 입력된 문자부터 출력한다.
+실행 취소 (undo) : 가장 나중에 실행된 것부터 실행을 취소한다.
+후위 표기법 계산 : 컴퓨터가 연산하기 쉽게(?) 연산자를 나중에 써주는 것 // 연산자는 스택에 담고 숫자는 그대로 표기 1+2*3이면 스택에서는 후입선출이기 때문에 123*+
+수식의 괄호 검사 (연산자 우선순위 표현을 위한 괄호 검사) //53번 문제를 예시로 `가장 나중에 쌓은 열린 괄호`를 `닫힌 괄호가 들어 왔을 때 가장 먼저 pop`했음
+
+```
+<br>
+
 ## 54. 연속되는 수
 💡 문제 : 은주는 놀이공원 아르바이트를 하고 있다. 은주가 일하는 놀이공원에서는 현재 놀이공원 곳곳에 숨겨진 숫자 스탬프를 모아 오면 선물을 주는 이벤트를 하고 있다. 숫자 스탬프는 매일 그 수와 스탬프에 적힌 숫자가 바뀌지만 그 숫자는 항상 연속된다. 
 그런데 요즘 다른 날에 찍은 스탬프를 가지고 와 선물을 달라고 하는 손님이 늘었다.
@@ -230,7 +247,20 @@ NO
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-ㅇㅇ
+const input = prompt('정수를 공백으로 구분하여 입력').split(' ')
+
+const sortInput = input.sort((a, b) => a - b);
+let count = 0;
+for(let i = 0; i < sortInput.length-1; i++){
+  if (parseInt(sortInput[i]) + 1 !== parseInt(sortInput[i+1])) {
+    count++;
+  }
+}
+if (count !== 0){
+  console.log('NO');
+} else {
+  console.log('YES');
+}
 ```
 <br>
 
@@ -253,7 +283,28 @@ England 22023
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-ㅇㅇ
+const nationWidth = {
+  'korea': 220877,
+  'Rusia': 17098242,
+  'China': 9596961,
+  'France': 543965,
+  'Japan': 377915,
+  'England': 242900,
+};
+const nationWidthToArray = Object.values(nationWidth);
+
+const changedArray = []
+for (let i = 1; i < nationWidthToArray.length; i++){
+  let changed = nationWidthToArray[i] - nationWidthToArray[0];
+  if(changed < 0) {
+    changedArray.push(-1 * changed)
+  } else {
+    changedArray.push(changed);
+  }
+} 
+const result = changedArray.sort((a, b) => a - b)
+console.log(result[0])
+
 ```
 <br>
 
