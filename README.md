@@ -264,6 +264,18 @@ if (count !== 0){
 ```
 <br>
 
+## 55. 템플릿
+💡 문제 : 
+```js
+ㅇㅇ
+```
+<strong>- 내가 푼 답</strong>
+```js
+ㅇㅇ
+```
+<br>
+
+
 ## 56. 객체의 함수 응용
 💡 문제 : 다음의 객체가 주어졌을 때 한국의 면적과 가장 비슷한 국가와 그 차이를 출력하세요.
 
@@ -305,6 +317,17 @@ for (let i = 1; i < nationWidthToArray.length; i++){
 const result = changedArray.sort((a, b) => a - b)
 console.log(result[0])
 
+```
+<br>
+
+## 57. 템플릿
+💡 문제 : 
+```js
+ㅇㅇ
+```
+<strong>- 내가 푼 답</strong>
+```js
+ㅇㅇ
 ```
 <br>
 
