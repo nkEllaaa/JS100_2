@@ -280,10 +280,10 @@ const route = [];
 
 function hanoi(num, start, end, temp){
   //원판이 한 개일 때에는 바로 옮기면 됩니다.
-  if (num === 1) {                       //원반이 하나라면 
-    route.push([start, end]);            //루트에 [A, C] -> [[A, C]]
-    return NaN;                          //유효한 연산이 아니어서 NaN 값을 통해 잘못된 결과임을 인식하고,
-  }                                      //필요에 따라 이를 처리할 수 있도록 하는 것
+  if (num === 1) {                       
+    route.push([start, end]);            
+    return NaN;                          
+  }                                     
 
   //원반이 n-1개를 경유기둥으로 옮기고
   hanoi(/*내용을 채워주세요.*/);
@@ -293,13 +293,33 @@ function hanoi(num, start, end, temp){
   hanoi(/*내용을 채워주세요.*/);
 }
 
-hanoi(3, 'A', 'B', 'C');                 //3 : 원반개수, A : 시작기둥, B : 경유기둥, C : 목표기둥
+hanoi(3, 'A', 'B', 'C');                 
 console.log(route);
 console.log(route.length);
 ```
+
 <strong>- 내가 푼 답</strong>
 ```js
-ㅇㅇ
+const route = [];
+
+function hanoi(num, start, end, temp){
+  //원판이 한 개일 때에는 바로 옮기면 됩니다.
+  if (num === 1) {                     //원반이 하나라면
+    route.push([start, end]);          //루트에 [A, C] -> [[A, C]]
+    return NaN;                        //return NaN의 의미 : 유효한 연산이 아니어서 NaN 값을 통해 잘못된 결과임을 인식하고,
+  }                                    //필요에 따라 이를 처리할 수 있도록 하는 것
+
+  //원반이 n-1개를 경유기둥으로 옮기고
+  hanoi(num-1, start, temp, end);      //더 작은 값으로 자기 자신을 호출해서 n-1개의 원반을 경유 기둥으로 옮김 : 대체 여기서 어떻게 n-1개가 큰거부터 쌓이는데....????
+  //가장 큰 원반은 목표기둥으로
+  route.push([start, end]);            //여기는 이해
+  //경유기둥과 시작기둥을 바꿉니다.
+  hanoi(num-1, temp, end, start);      //실행순서가 hanoi(num-1, start, temp, end); 이걸 다 돌리고 여기로 넘어온다는데....
+}
+
+hanoi(3, 'A', 'B', 'C');               //3 : 원반개수, A : 시작기둥, B : 경유기둥, C : 목표기둥
+console.log(route);
+console.log(route.length);
 ```
 <br>
 
