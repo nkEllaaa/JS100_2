@@ -516,7 +516,7 @@ for (let i = 0; i < input.length; i++) {
 }
 
 // 'a2a1b3b1c1'
-// 기준을 다음 문자로 잡으니까 a가 두 번 잡힘
+// 기준없이 비교만 하니까 a가 두 번 잡힘
 // 카운트 초기화 안됨
 ```
 ```js
@@ -536,6 +536,9 @@ for (let i = 1; i < input.length; i++) {
 }
 result += control + String(count);
 console.log(result);
+
+// 다른 문자를 만났을 때 기준을 그 해당 문자로 바꿈
+// 다른 문자를 만났을 때 카운트를 1로 초기화
 ```
 <br>
 
