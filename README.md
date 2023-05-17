@@ -503,7 +503,7 @@ a3b4c1d4
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-const input = 'aabbc'
+const input = prompt('압축할 문자열을 입력하세요')
 let count = 1;
 let result = ''
 for (let i = 0; i < input.length; i++) {
@@ -516,6 +516,26 @@ for (let i = 0; i < input.length; i++) {
 }
 
 // 'a2a1b3b1c1'
+// 기준을 다음 문자로 잡으니까 a가 두 번 잡힘
+// 카운트 초기화 안됨
+```
+```js
+const input = prompt('압축할 문자열을 입력하세요')
+let count = 1;
+let result = '';
+let control = input[0];
+
+for (let i = 1; i < input.length; i++) {
+  if (input[i] === control) {
+    count++;
+  } else {
+    result += control + String(count);
+    control = input[i];
+    count = 1;
+  }
+}
+result += control + String(count);
+console.log(result);
 ```
 <br>
 
