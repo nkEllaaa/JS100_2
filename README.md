@@ -390,6 +390,146 @@ console.log(count);
 ```
 <br>
 
+## 58. 콤마찍기
+💡 문제 : 원범이는 편의점 아르바이트가 끝난 후 정산을 하고자 합니다.
+정산을 빨리하고 집에 가고 싶은 원범이는 프로그램을 만들려고 합니다.
+```js
+숫자를 입력받고 천 단위로 콤마(,)를 찍어주세요.
+
+예를 들어, 123456789를 입력받았으면 123,456,789를 출력해야 합니다.
+```
+
+<strong>- 내가 푼 답</strong>
+```js
+const n = parseInt(prompt('숫자를 입력해주세요.'));
+console.log(n.toLocaleString());
+
+//숫자일때만 콤마 찍을 수 있음
+```
+<br>
+
+## toLocaleString()
+```js
+Date.prototype.toLocaleString()
+// 날짜를 각 설정한 나라에 맞는 방식으로 출력
+// toLocaleString(locales, options)
+// ex) x.toLocaleString('ko-KR', { timeZone: 'UTC' }
+Number.prototype.toLocaleString()
+// 숫자를 각 설정한 나라에 맞는 방식으로 출력
+// 꼭 숫자를 변수에 담은 뒤에 실행
+// 변수 안에 숫자를 넣으면 생성되는 Number객체 안에 있는 함수를 사용하는 것이기 때문에 
+// 그냥 상수 옆에 때려박으면 실행되지 않는다.
+```
+
+## 59. 빈칸채우기
+💡 문제 : 총 문자열의 길이는 50으로 제한하고 사용자가 문자열을 입력하면 그 문자열을 가운데 정렬을 해주고, 나머지 빈 부분에는 '='을 채워 넣어주세요.
+```js
+입력
+hi
+
+출력
+========================hi========================
+```
+<strong>- 내가 푼 답</strong>
+```js
+const str = prompt('문자열을 입력하세요(최대 50자)')
+const num = parseInt((50-str.length) / 2)
+let arr = '';
+
+if(str.length <= 50){
+  for (let i = 0; i < num; i++) {
+    arr += '='
+  }
+  if (str.length % 2 === 0) {
+    console.log(arr + str +arr)
+  } else {
+    console.log(arr + str + arr + '=')
+  }
+} else {
+  console.log('최대 50자 까지 가능')
+}
+
+//50자 제한
+//받은 문자열이 홀수일 때의 조건이 없어서 임의로 문자열 뒤쪽에 '=' 추가해서 50자 맞춤
+```
+<br>
+
+## 60. 번호 매기기
+💡 문제 : 새 학기가 되어 이름을 가나다 순서대로 배정하고 번호를 매기려고 합니다.
+데이터에 입력된 이름을 아래와 같이 출력해 주세요.
+```js
+데이터
+students = ['강은지','김유정','박현서','최성훈','홍유진','박지호','권윤일','김채리','한지호','김진이','김민호','강채연']
+
+
+출력
+번호: 1, 이름: 강은지
+번호: 2, 이름: 강채연
+번호: 3, 이름: 권윤일
+번호: 4, 이름: 김민호
+번호: 5, 이름: 김유정
+번호: 6, 이름: 김진이
+번호: 7, 이름: 김채리
+번호: 8, 이름: 박지호
+번호: 9, 이름: 박현서
+번호: 10, 이름: 최성훈
+번호: 11, 이름: 한지호
+번호: 12, 이름: 홍유진
+```
+<strong>- 내가 푼 답</strong>
+```js
+let students = ['강은지','김유정','박현서','최성훈','홍유진','박지호','권윤일','김채리','한지호','김진이','김민호','강채연'];
+
+let sortStu = students.sort();
+
+let result = sortStu.map(function(e, i) {
+  console.log( '번호 : ' + i + ', 이름 : ' + e);
+});
+
+//(요소, 인덱스, 배열)
+//map 돌리고 return으로 했을 떄 모두 한 배열 안에 담겨서 나옴 -> 출력 결과는 줄바꿈 되어 나와야함
+//return에서 console.log로 
+```
+<br>
+
+## 61. 문자열 압축하기
+💡 문제 : 문자열을 입력받고 연속되는 문자열을 압축해서 표현하고 싶습니다.
+```js
+입력
+aaabbbbcdddd
+
+출력
+a3b4c1d4
+```
+<strong>- 내가 푼 답</strong>
+```js
+const input = 'aabbc'
+let count = 1;
+let result = ''
+for (let i = 0; i < input.length; i++) {
+  if (input[i] === input[i+1]) {
+    count++;
+    result += input[i] + String(count);
+  } else {
+    result += input[i] + '1'
+  }
+}
+
+// 'a2a1b3b1c1'
+```
+<br>
+
+## ㅇㅇ. 템플릿
+💡 문제 : 
+```js
+ㅇㅇ
+```
+<strong>- 내가 푼 답</strong>
+```js
+ㅇㅇ
+```
+<br>
+
 ## ㅇㅇ. 템플릿
 💡 문제 : 
 ```js
