@@ -595,7 +595,19 @@ console.log(result)
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-ㅇㅇ
+const input = parseInt(prompt('정량을 입력하세요'));
+let rem7 = 0;
+let quo7 = 0;
+quo7 = input / 7;
+rem7 = input % 7;
+if (rem7 === 0) {
+  console.log(parseInt(quo7));
+} else if (rem7 === 3 || rem7 === 6) {
+  quo7 += parseInt(rem7 / 3);  // 수정된 부분
+  console.log(parseInt(quo7));
+} else {
+  console.log(-1);
+}
 ```
 <br>
 
