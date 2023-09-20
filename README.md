@@ -1,5 +1,5 @@
-# JS100_2
 JS 알고리즘 100문제 모음집 2권
+# JS100_2
 <br>
 <br>
 
@@ -32,8 +32,8 @@ function merge(left, right){
   while (/*빈칸을 채워주세요*/ && /*빈칸을 채워주세요*/){
     if (/*빈칸을 채워주세요*/){
       result.push(left.shift());
-    } else {
       result.push(right.shift());
+    } else {
     }
   }
   while (left.length) {
@@ -707,17 +707,6 @@ for(let i = 1; i < num-1; i++) {
 arr[0] = input - shakeHands
 arr[1] = num
 console.log(arr)
-```
-<br>
-
-## ㅇㅇ. 템플릿
-💡 문제 : 
-```js
-ㅇㅇ
-```
-<strong>- 내가 푼 답</strong>
-```js
-ㅇㅇ
 ```
 <br>
 
